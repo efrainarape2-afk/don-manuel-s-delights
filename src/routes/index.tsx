@@ -88,6 +88,16 @@ function Index() {
     return offers.filter((offer) => offer.category === activeCategory);
   }, [activeCategory]);
 
+  const featuredOffer = useMemo(
+    () => filteredOffers.find((offer) => offer.featured) ?? filteredOffers[0],
+    [filteredOffers],
+  );
+
+  const regularOffers = useMemo(
+    () => filteredOffers.filter((offer) => offer.name !== featuredOffer?.name),
+    [featuredOffer, filteredOffers],
+  );
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <StickyHeader />
@@ -188,31 +198,73 @@ function Index() {
               <SectionHeading
                 eyebrow="Pedidos rápidos"
                 title="Combos y ofertas del día"
-                description="Combina panadería, pastelería y charcutería en propuestas listas para pedir por WhatsApp."
+                description="Una vitrina pensada para vender: combos visibles, filtros rápidos y llamadas a la acción directas para cerrar pedidos por WhatsApp."
               />
             </Reveal>
 
-            <Reveal delay={80} className="mb-8 flex flex-wrap gap-3">
-              {offerCategories.map((category) => (
-                <button
-                  key={category}
-                  type="button"
-                  className={activeCategory === category ? "filter-chip is-active" : "filter-chip"}
-                  onClick={() => setActiveCategory(category)}
-                  aria-pressed={activeCategory === category}
-                >
-                  {category}
-                </button>
-              ))}
-            </Reveal>
+            <Reveal delay={80}>
+              <div className="offers-shell">
+                <div className="offers-toolbar">
+                  <div>
+                    <p className="section-eyebrow">Filtra y resuelve rápido</p>
+                    <p className="mt-2 max-w-2xl text-sm leading-6 text-muted-foreground md:text-base">
+                      Explora por categoría y encuentra la mejor opción del día para desayunos, meriendas o reuniones.
+                    </p>
+                  </div>
+                  <div className="filter-rail" role="tablist" aria-label="Filtrar combos por categoría">
+                    {offerCategories.map((category) => (
+                      <button
+                        key={category}
+                        type="button"
+                        role="tab"
+                        aria-selected={activeCategory === category}
+                        className={activeCategory === category ? "filter-chip is-active" : "filter-chip"}
+                        onClick={() => setActiveCategory(category)}
+                      >
+                        {category}
+                      </button>
+                    ))}
+                  </div>
+                </div>
 
-            <div className="grid gap-6 lg:grid-cols-2 xl:grid-cols-3">
-              {filteredOffers.map((offer, index) => (
-                <Reveal key={offer.name} delay={index * 80}>
-                  <OfferCard offer={offer} />
-                </Reveal>
-              ))}
-            </div>
+                {featuredOffer ? (
+                  <Reveal delay={120}>
+                    <div className="featured-offer-stage">
+                      <div className="featured-offer-copy">
+                        <p className="section-eyebrow">Oferta del día</p>
+                        <h3 className="font-display text-3xl md:text-5xl">{featuredOffer.name}</h3>
+                        <p className="text-base leading-7 text-muted-foreground md:text-lg">
+                          {featuredOffer.description}
+                        </p>
+                        <div className="featured-offer-stats">
+                          <div className="featured-stat">
+                            <span className="featured-stat-label">Categoría</span>
+                            <span className="featured-stat-value">{featuredOffer.category}</span>
+                          </div>
+                          <div className="featured-stat">
+                            <span className="featured-stat-label">Precio</span>
+                            <span className="featured-stat-value">{featuredOffer.price}</span>
+                          </div>
+                          <div className="featured-stat">
+                            <span className="featured-stat-label">Incluye</span>
+                            <span className="featured-stat-value">{featuredOffer.includes.length} productos</span>
+                          </div>
+                        </div>
+                      </div>
+                      <OfferCard offer={featuredOffer} featured />
+                    </div>
+                  </Reveal>
+                ) : null}
+
+                <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+                  {regularOffers.map((offer, index) => (
+                    <Reveal key={offer.name} delay={index * 80}>
+                      <OfferCard offer={offer} />
+                    </Reveal>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
           </div>
         </section>
 
