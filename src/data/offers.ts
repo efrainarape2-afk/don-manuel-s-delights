@@ -139,8 +139,7 @@ export const offers: OfferItem[] = [
     name: "Combo Desayuno Don Manuel",
     category: "Desayunos",
     badge: "Más pedido",
-    description:
-      "Cachitos, café y opción dulce para comenzar el día.",
+    description: "Cachitos, café y opción dulce para comenzar el día.",
     includes: ["Cachitos", "Café", "Dulce del día"],
     price: "Consultar precio",
     image: coffeeImage,
@@ -151,8 +150,7 @@ export const offers: OfferItem[] = [
     name: "Combo Pan Familiar",
     category: "Panadería",
     badge: "Familiar",
-    description:
-      "Selección de panes frescos para la mesa de la casa.",
+    description: "Selección de panes frescos para la mesa de la casa.",
     includes: ["Pan francés", "Pan dulce", "Pan campesino"],
     price: "Consultar precio",
     image: breadImage,
@@ -199,8 +197,7 @@ export const offers: OfferItem[] = [
     name: "Combo Reunión",
     category: "Especiales",
     badge: "Especial",
-    description:
-      "Pan, charcutería, dulces y opciones saladas para compartir.",
+    description: "Pan, charcutería, dulces y opciones saladas para compartir.",
     includes: ["Pan", "Charcutería", "Dulces", "Opciones saladas"],
     price: "Consultar precio",
     image: heroImage,
@@ -212,13 +209,7 @@ export const offers: OfferItem[] = [
 export const quickMenu = [
   {
     category: "Panadería",
-    items: [
-      "Pan francés",
-      "Pan campesino",
-      "Pan dulce",
-      "Cachitos",
-      "Golfeados",
-    ],
+    items: ["Pan francés", "Pan campesino", "Pan dulce", "Cachitos", "Golfeados"],
   },
   {
     category: "Pastelería",
@@ -252,23 +243,11 @@ export const quickMenu = [
   },
   {
     category: "Embutidos",
-    items: [
-      "Mortadela",
-      "Jamón",
-      "Salchichón",
-      "Chorizos",
-      "Selecciones del día",
-    ],
+    items: ["Mortadela", "Jamón", "Salchichón", "Chorizos", "Selecciones del día"],
   },
   {
     category: "Dulces y tortas",
-    items: [
-      "Tortas completas",
-      "Quesillos",
-      "Brownies",
-      "Ponqués",
-      "Postres del día",
-    ],
+    items: ["Tortas completas", "Quesillos", "Brownies", "Ponqués", "Postres del día"],
   },
 ];
 
