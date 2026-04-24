@@ -104,20 +104,38 @@ function Index() {
 
       <main>
         <section id="inicio" className="hero-section">
-          <div className="dm-container grid items-center gap-10 pb-14 pt-28 lg:grid-cols-[1.05fr_0.95fr] lg:pb-24 lg:pt-36">
-            <Reveal className="space-y-7">
-              <div className="space-y-4">
+          <div className="dm-container grid items-center gap-12 pb-16 pt-28 lg:grid-cols-[0.96fr_1.04fr] lg:pb-28 lg:pt-36">
+            <Reveal className="hero-copy space-y-8">
+              <div className="space-y-5">
                 <p className="section-eyebrow">Panadería · Pastelería · Charcutería</p>
-                <h1 className="font-display text-balance text-5xl leading-tight md:text-6xl lg:text-7xl">
-                  Pan recién hecho, dulces de casa y charcutería para compartir
+                <h1 className="hero-title text-balance">
+                  <span>Pan recién hecho</span>
+                  <span className="text-primary"> dulces memorables </span>
+                  <span>y una vitrina pensada para antojar</span>
                 </h1>
-                <p className="max-w-2xl text-lg leading-8 text-muted-foreground md:text-xl">
+                <p className="hero-lead max-w-2xl">
                   En Panadería y Pastelería Don Manuel C.A. encuentras panadería diaria,
-                  pastelería, café, charcutería, embutidos y combos especiales para tu mesa.
+                  pastelería, café, charcutería, embutidos y combos especiales con una
+                  presentación cálida, cercana y lista para resolver tu día.
                 </p>
               </div>
 
-              <div className="flex min-h-14 items-center gap-3 rounded-lg border border-border/70 bg-card/80 px-4 py-3 shadow-soft backdrop-blur-sm md:max-w-max">
+              <div className="hero-proof-row" aria-label="Señales de confianza de la marca">
+                <div className="hero-proof">
+                  <span className="hero-proof-value">Horneado</span>
+                  <span className="hero-proof-label">fresco cada día</span>
+                </div>
+                <div className="hero-proof">
+                  <span className="hero-proof-value">Pedidos</span>
+                  <span className="hero-proof-label">directo por WhatsApp</span>
+                </div>
+                <div className="hero-proof">
+                  <span className="hero-proof-value">Combos</span>
+                  <span className="hero-proof-label">para desayuno y reunión</span>
+                </div>
+              </div>
+
+              <div className="hero-day-chip flex min-h-14 items-center gap-3 md:max-w-max">
                 <span className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Hoy</span>
                 <span className="font-display text-2xl text-primary transition-all duration-500">
                   {rotatingWords[wordIndex]}
@@ -125,13 +143,13 @@ function Index() {
               </div>
 
               <div className="flex flex-col gap-3 sm:flex-row">
-                <Button asChild variant="hero" size="lg">
+                <Button asChild variant="hero" size="lg" className="sm:min-w-56">
                   <a href={buildWhatsAppLink()} target="_blank" rel="noreferrer">
                     <MessageCircle />
                     Pedir por WhatsApp
                   </a>
                 </Button>
-                <Button asChild variant="warm" size="lg">
+                <Button asChild variant="warm" size="lg" className="sm:min-w-48">
                   <a href="#combos">
                     Ver combos de hoy
                     <ChevronRight />
@@ -140,12 +158,13 @@ function Index() {
               </div>
 
               <p className="text-sm text-muted-foreground">
-                Consulta disponibilidad del día por WhatsApp.
+                Consulta disponibilidad del día y confirma tu pedido en pocos minutos.
               </p>
             </Reveal>
 
             <Reveal delay={120}>
               <div className="hero-image-shell group">
+                <span className="hero-frame-note">Selección del día</span>
                 <img
                   src={gallery[0].image}
                   alt={gallery[0].alt}
@@ -154,8 +173,10 @@ function Index() {
                   className="hero-image"
                 />
                 <div className="hero-image-badge">
-                  <span className="font-display text-xl">Hecho con sazón casera</span>
-                  <p className="text-sm text-muted-foreground">Pan, dulces, café y opciones para compartir cada día.</p>
+                  <span className="font-display text-2xl text-foreground">Hecho con sazón casera</span>
+                  <p className="text-sm leading-6 text-muted-foreground">
+                    Pan, dulces, café y charcutería presentados como una experiencia de marca cálida y apetecible.
+                  </p>
                 </div>
               </div>
             </Reveal>
