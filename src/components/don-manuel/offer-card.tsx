@@ -52,7 +52,7 @@ export function OfferCard({ offer, featured = false }: OfferCardProps) {
             <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground">Precio</p>
             <p className="mt-1 font-display text-2xl text-foreground">{offer.price}</p>
           </div>
-          <Button asChild variant="hero" className={featured ? "w-full sm:w-auto" : "shrink-0"}>
+          <Button asChild variant="hero" className={featured ? "commercial-button w-full sm:w-auto" : "commercial-button shrink-0"}>
             <a
               href={buildOfferWhatsAppLink(offer.name)}
               target="_blank"
