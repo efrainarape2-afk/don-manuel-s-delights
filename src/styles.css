@@ -451,6 +451,62 @@
     animation: pulse-soft 2.4s ease-in-out infinite;
   }
 
+  .brand-mark {
+    @apply flex min-w-0 flex-col gap-0.5;
+  }
+
+  .brand-mark-title {
+    @apply font-display text-[1.75rem] leading-none text-foreground;
+  }
+
+  .brand-mark-subtitle {
+    @apply text-[0.72rem] uppercase tracking-[0.24em] text-muted-foreground sm:text-[0.76rem];
+  }
+
+  .header-cta {
+    @apply min-w-48;
+  }
+
+  .commercial-button {
+    @apply font-semibold shadow-[var(--shadow-soft)];
+  }
+
+  .commercial-button:hover {
+    box-shadow: var(--shadow-elegant);
+  }
+
+  .product-card .image-zoom,
+  .offer-card .image-zoom,
+  .gallery-card.image-zoom {
+    @apply relative;
+  }
+
+  .product-card .image-zoom::after,
+  .offer-card .image-zoom::after,
+  .gallery-card.image-zoom::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 0 0;
+    height: 45%;
+    background: linear-gradient(180deg, transparent, oklch(0.24 0.02 40 / 0.16));
+    pointer-events: none;
+  }
+
+  .product-card,
+  .offer-card {
+    @apply rounded-[1.6rem];
+  }
+
+  .filter-chip {
+    @apply inline-flex min-h-11 items-center rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-foreground transition-all duration-300 hover:-translate-y-0.5 hover:bg-surface;
+    box-shadow: 0 8px 18px -18px color-mix(in oklab, var(--color-accent) 70%, transparent);
+  }
+
+  .filter-chip.is-active {
+    @apply border-primary bg-primary text-primary-foreground shadow-soft;
+    box-shadow: 0 14px 28px -18px color-mix(in oklab, var(--color-primary) 80%, transparent);
+  }
+
   .reveal-section {
     opacity: 0;
     transform: translateY(24px);
