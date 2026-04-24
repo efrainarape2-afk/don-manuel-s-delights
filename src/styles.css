@@ -44,32 +44,32 @@
 :root {
   --font-body: "Inter", sans-serif;
   --font-display: "Playfair Display", serif;
-  --radius: 0.5rem;
-  --background: oklch(0.994 0.007 88.641);
-  --foreground: oklch(0.238 0.031 45.99);
-  --card: oklch(1 0.008 85);
-  --card-foreground: oklch(0.238 0.031 45.99);
-  --popover: oklch(1 0.008 85);
-  --popover-foreground: oklch(0.238 0.031 45.99);
-  --primary: oklch(0.732 0.125 71.545);
-  --primary-foreground: oklch(0.994 0.007 88.641);
-  --secondary: oklch(0.971 0.025 78.921);
-  --secondary-foreground: oklch(0.238 0.031 45.99);
-  --muted: oklch(0.978 0.012 83);
-  --muted-foreground: oklch(0.47 0.04 42);
-  --accent: oklch(0.455 0.111 28.002);
-  --accent-foreground: oklch(0.994 0.007 88.641);
+  --radius: 0.45rem;
+  --background: oklch(0.988 0.011 83);
+  --foreground: oklch(0.27 0.033 41);
+  --card: oklch(0.996 0.009 84);
+  --card-foreground: oklch(0.27 0.033 41);
+  --popover: oklch(0.996 0.009 84);
+  --popover-foreground: oklch(0.27 0.033 41);
+  --primary: oklch(0.69 0.123 71);
+  --primary-foreground: oklch(0.992 0.008 88);
+  --secondary: oklch(0.963 0.022 76);
+  --secondary-foreground: oklch(0.27 0.033 41);
+  --muted: oklch(0.974 0.012 82);
+  --muted-foreground: oklch(0.52 0.038 42);
+  --accent: oklch(0.39 0.07 36);
+  --accent-foreground: oklch(0.992 0.008 88);
   --destructive: oklch(0.55 0.19 28);
   --destructive-foreground: oklch(0.994 0.007 88.641);
-  --border: oklch(0.89 0.03 75 / 0.9);
-  --input: oklch(0.94 0.02 82);
-  --ring: oklch(0.732 0.125 71.545 / 0.4);
-  --surface: oklch(0.985 0.014 82);
-  --surface-strong: oklch(0.962 0.028 78);
-  --wash: oklch(0.971 0.025 78.921 / 0.55);
-  --gold-soft: oklch(0.86 0.08 75 / 0.45);
-  --shadow-elegant: 0 16px 40px -20px oklch(0.325 0.052 44.784 / 0.45);
-  --shadow-soft: 0 10px 30px -18px oklch(0.325 0.052 44.784 / 0.22);
+  --border: oklch(0.89 0.027 72 / 0.92);
+  --input: oklch(0.945 0.019 81);
+  --ring: oklch(0.69 0.123 71 / 0.4);
+  --surface: oklch(0.98 0.015 80);
+  --surface-strong: oklch(0.952 0.03 75);
+  --wash: oklch(0.96 0.02 76 / 0.75);
+  --gold-soft: oklch(0.83 0.085 74 / 0.5);
+  --shadow-elegant: 0 24px 60px -28px oklch(0.28 0.038 38 / 0.38);
+  --shadow-soft: 0 14px 34px -24px oklch(0.29 0.035 40 / 0.26);
 }
 
 .dark {
@@ -111,8 +111,9 @@
 
   body {
     background:
-      radial-gradient(circle at top, var(--color-wash), transparent 36%),
-      linear-gradient(180deg, oklch(1 0.01 90), var(--color-background));
+      radial-gradient(circle at top left, var(--color-gold-soft), transparent 22%),
+      radial-gradient(circle at top, var(--color-wash), transparent 38%),
+      linear-gradient(180deg, oklch(1 0.012 89), var(--color-background));
     color: var(--color-foreground);
     font-family: var(--font-body);
     letter-spacing: 0;
@@ -143,7 +144,7 @@
   }
 
   .section-space {
-    @apply py-16 md:py-24;
+    @apply py-20 md:py-28;
   }
 
   .section-band {
@@ -160,16 +161,17 @@
 
   .site-header {
     @apply fixed inset-x-0 top-0 z-50 border-b border-transparent transition-all duration-300;
+    background: linear-gradient(180deg, oklch(1 0.008 88 / 0.84), transparent);
   }
 
   .site-header.is-scrolled {
-    background: color-mix(in oklab, var(--color-background) 88%, white 12%);
+    background: color-mix(in oklab, var(--color-background) 92%, white 8%);
     @apply border-border/70 shadow-sm backdrop-blur-xl;
     box-shadow: var(--shadow-soft);
   }
 
   .nav-link {
-    @apply text-sm font-medium text-foreground/80 transition-colors duration-300 hover:text-foreground;
+    @apply text-sm font-medium text-foreground/78 transition-colors duration-300 hover:text-foreground;
   }
 
   .mobile-menu-button {
@@ -178,13 +180,48 @@
 
   .hero-section {
     background:
-      radial-gradient(circle at right top, var(--color-gold-soft), transparent 34%),
+      radial-gradient(circle at 78% 18%, var(--color-gold-soft), transparent 26%),
+      radial-gradient(circle at 8% 10%, color-mix(in oklab, var(--color-primary) 10%, transparent), transparent 24%),
       linear-gradient(180deg, transparent, var(--color-wash));
   }
 
+  .hero-copy {
+    @apply relative;
+  }
+
+  .hero-title {
+    @apply max-w-4xl font-display text-[3.5rem] leading-[0.95] md:text-[4.6rem] lg:text-[5.5rem];
+    text-wrap: balance;
+  }
+
+  .hero-lead {
+    @apply text-lg leading-8 text-muted-foreground md:text-xl;
+  }
+
+  .hero-proof-row {
+    @apply grid gap-3 sm:grid-cols-3;
+  }
+
+  .hero-proof {
+    @apply rounded-2xl border border-border/70 bg-card/88 px-4 py-4 shadow-soft backdrop-blur-sm;
+  }
+
+  .hero-proof-value {
+    @apply block font-display text-2xl text-foreground;
+  }
+
+  .hero-proof-label {
+    @apply mt-1 block text-sm leading-6 text-muted-foreground;
+  }
+
+  .hero-day-chip {
+    @apply rounded-2xl border border-border/70 bg-card/82 px-4 py-3 shadow-soft backdrop-blur-sm;
+  }
+
   .hero-image-shell {
-    @apply relative overflow-hidden rounded-2xl border border-border/70 bg-card p-2 shadow-[var(--shadow-elegant)];
-    transform: perspective(1400px) rotateY(-2deg);
+    @apply relative overflow-hidden rounded-[2rem] border border-border/70 bg-card p-3 shadow-[var(--shadow-elegant)];
+    background: linear-gradient(180deg, color-mix(in oklab, var(--color-card) 80%, white 20%), var(--color-card));
+    transform: perspective(1400px) rotateY(-2deg) translateY(0);
     transition: transform 350ms ease, box-shadow 350ms ease;
   }
 
@@ -193,11 +230,15 @@
   }
 
   .hero-image {
-    @apply aspect-[4/5] w-full rounded-xl object-cover md:aspect-[5/6] lg:aspect-[4/5];
+    @apply aspect-[4/5] w-full rounded-[1.6rem] object-cover md:aspect-[5/6] lg:aspect-[4/5];
+  }
+
+  .hero-frame-note {
+    @apply absolute left-6 top-6 z-10 rounded-full border border-border/70 bg-background/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-foreground/80 backdrop-blur-sm;
   }
 
   .hero-image-badge {
-    @apply absolute bottom-5 left-5 max-w-xs rounded-lg border border-border/60 bg-card/92 p-4 shadow-soft backdrop-blur-sm;
+    @apply absolute bottom-6 left-6 max-w-sm rounded-2xl border border-border/60 bg-card/92 p-5 shadow-soft backdrop-blur-md;
   }
 
   .ticker-wrap {
@@ -243,8 +284,19 @@
   .gallery-card:hover,
   .value-card:hover,
   .info-card:hover {
-    transform: translateY(-6px);
+    transform: translateY(-8px);
     box-shadow: var(--shadow-elegant);
+  }
+
+  .product-card,
+  .offer-card,
+  .menu-panel,
+  .gallery-card,
+  .location-panel,
+  .value-card,
+  .info-card,
+  .step-card {
+    background-image: linear-gradient(180deg, color-mix(in oklab, var(--color-card) 82%, white 18%), var(--color-card));
   }
 
   .image-zoom img {
@@ -256,9 +308,10 @@
   }
 
   .badge-shine {
-    @apply inline-flex items-center rounded-full border border-primary/20 bg-primary px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-primary-foreground;
+    @apply inline-flex items-center rounded-full border border-primary/25 bg-primary px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-primary-foreground;
     position: relative;
     overflow: hidden;
+    box-shadow: 0 10px 22px -18px color-mix(in oklab, var(--color-primary) 80%, transparent);
   }
 
   .badge-shine::after {
@@ -291,7 +344,7 @@
   }
 
   .offers-toolbar {
-    @apply rounded-2xl border border-border/70 bg-card/90 p-4 shadow-soft md:p-6;
+    @apply rounded-[1.75rem] border border-border/70 bg-card/92 p-4 shadow-soft md:p-6;
   }
 
   .filter-rail {
@@ -316,7 +369,7 @@
   }
 
   .featured-offer-copy {
-    @apply rounded-2xl border border-border/70 bg-[linear-gradient(180deg,color-mix(in_oklab,var(--color-primary)_10%,white)_0%,var(--color-card)_100%)] p-5 shadow-soft md:p-7;
+    @apply rounded-[1.75rem] border border-border/70 bg-[linear-gradient(180deg,color-mix(in_oklab,var(--color-primary)_12%,white)_0%,var(--color-card)_100%)] p-5 shadow-soft md:p-7;
   }
 
   .featured-offer-stats {
@@ -340,7 +393,7 @@
   }
 
   .value-card {
-    @apply flex items-center gap-4 rounded-xl border border-border/70 bg-card/95 p-5;
+    @apply flex items-center gap-4 rounded-2xl border border-border/70 bg-card/95 p-5;
   }
 
   .value-dot {
@@ -349,7 +402,7 @@
   }
 
   .step-card {
-    @apply rounded-xl border border-border/70 bg-card/95 p-6;
+    @apply rounded-2xl border border-border/70 bg-card/95 p-6;
   }
 
   .step-index {
@@ -361,16 +414,16 @@
   }
 
   .gallery-card {
-    @apply overflow-hidden rounded-xl border border-border/70 bg-card;
+    @apply overflow-hidden rounded-2xl border border-border/70 bg-card;
     aspect-ratio: 4 / 3;
   }
 
   .location-panel {
-    @apply rounded-2xl border border-border/70 bg-card/95 p-6 md:p-8;
+    @apply rounded-[1.9rem] border border-border/70 bg-card/95 p-6 md:p-8;
   }
 
   .info-card {
-    @apply flex gap-3 rounded-xl border border-border/70 bg-surface/85 p-4;
+    @apply flex gap-3 rounded-2xl border border-border/70 bg-surface/85 p-4;
   }
 
   .info-label {
@@ -396,6 +449,62 @@
   .whatsapp-fab {
     @apply fixed bottom-4 right-4 z-50 inline-flex min-h-14 items-center justify-center gap-2 rounded-full bg-accent px-4 py-3 text-sm font-semibold text-accent-foreground shadow-[var(--shadow-elegant)] transition-transform duration-300 hover:-translate-y-0.5 md:bottom-6 md:right-6;
     animation: pulse-soft 2.4s ease-in-out infinite;
+  }
+
+  .brand-mark {
+    @apply flex min-w-0 flex-col gap-0.5;
+  }
+
+  .brand-mark-title {
+    @apply font-display text-[1.75rem] leading-none text-foreground;
+  }
+
+  .brand-mark-subtitle {
+    @apply text-[0.72rem] uppercase tracking-[0.24em] text-muted-foreground sm:text-[0.76rem];
+  }
+
+  .header-cta {
+    @apply min-w-48;
+  }
+
+  .commercial-button {
+    @apply font-semibold shadow-[var(--shadow-soft)];
+  }
+
+  .commercial-button:hover {
+    box-shadow: var(--shadow-elegant);
+  }
+
+  .product-card .image-zoom,
+  .offer-card .image-zoom,
+  .gallery-card.image-zoom {
+    @apply relative;
+  }
+
+  .product-card .image-zoom::after,
+  .offer-card .image-zoom::after,
+  .gallery-card.image-zoom::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 0 0;
+    height: 45%;
+    background: linear-gradient(180deg, transparent, oklch(0.24 0.02 40 / 0.16));
+    pointer-events: none;
+  }
+
+  .product-card,
+  .offer-card {
+    @apply rounded-[1.6rem];
+  }
+
+  .filter-chip {
+    @apply inline-flex min-h-11 items-center rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-foreground transition-all duration-300 hover:-translate-y-0.5 hover:bg-surface;
+    box-shadow: 0 8px 18px -18px color-mix(in oklab, var(--color-accent) 70%, transparent);
+  }
+
+  .filter-chip.is-active {
+    @apply border-primary bg-primary text-primary-foreground shadow-soft;
+    box-shadow: 0 14px 28px -18px color-mix(in oklab, var(--color-primary) 80%, transparent);
   }
 
   .reveal-section {

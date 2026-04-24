@@ -27,7 +27,7 @@ export function FavoriteCard({ item }: FavoriteCardProps) {
           <h3 className="font-display text-2xl text-foreground">{item.name}</h3>
           <p className="text-sm leading-6 text-muted-foreground">{item.description}</p>
         </div>
-        <Button asChild variant="warm" className="w-full justify-between">
+        <Button asChild variant="warm" className="commercial-button w-full justify-between">
           <a
             href={buildWhatsAppLink(`Hola, Panadería Don Manuel. Quiero consultar por ${item.name}.`)}
             target="_blank"
