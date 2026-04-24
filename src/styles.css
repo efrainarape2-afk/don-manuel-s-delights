@@ -286,6 +286,59 @@
     @apply border-primary bg-primary text-primary-foreground shadow-soft;
   }
 
+  .offers-shell {
+    @apply space-y-6 md:space-y-8;
+  }
+
+  .offers-toolbar {
+    @apply rounded-2xl border border-border/70 bg-card/90 p-4 shadow-soft md:p-6;
+  }
+
+  .filter-rail {
+    @apply mt-4 flex gap-3 overflow-x-auto pb-2 md:mt-5;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .filter-rail::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filter-rail .filter-chip {
+    @apply shrink-0;
+    scroll-snap-align: start;
+  }
+
+  .featured-offer-stage {
+    @apply grid gap-5 xl:grid-cols-[0.42fr_0.58fr] xl:items-stretch;
+  }
+
+  .featured-offer-copy {
+    @apply rounded-2xl border border-border/70 bg-[linear-gradient(180deg,color-mix(in_oklab,var(--color-primary)_10%,white)_0%,var(--color-card)_100%)] p-5 shadow-soft md:p-7;
+  }
+
+  .featured-offer-stats {
+    @apply mt-6 grid gap-3 sm:grid-cols-3;
+  }
+
+  .featured-stat {
+    @apply rounded-xl border border-border/70 bg-card/80 p-4;
+  }
+
+  .featured-stat-label {
+    @apply text-[11px] uppercase tracking-[0.18em] text-muted-foreground;
+  }
+
+  .featured-stat-value {
+    @apply mt-2 block font-display text-xl text-foreground;
+  }
+
+  .offer-card-featured {
+    @apply xl:grid xl:grid-cols-[0.48fr_0.52fr];
+  }
+
   .value-card {
     @apply flex items-center gap-4 rounded-xl border border-border/70 bg-card/95 p-5;
   }
@@ -384,6 +437,16 @@
   .hero-image-shell:hover,
   .image-zoom:hover img {
     transform: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .offer-card {
+    @apply w-full;
+  }
+
+  .offer-card .inline-flex:has(svg) {
+    @apply w-full;
   }
 }
 
