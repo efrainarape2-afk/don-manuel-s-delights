@@ -19,9 +19,9 @@ export function StickyHeader() {
   return (
     <header className={scrolled ? "site-header is-scrolled" : "site-header"}>
       <div className="dm-container flex min-h-20 items-center justify-between gap-4">
-        <a href="#inicio" className="flex min-w-0 flex-col">
-          <span className="font-display text-2xl text-foreground">Don Manuel</span>
-          <span className="text-xs text-muted-foreground sm:text-sm">{brand.tagline}</span>
+        <a href="#inicio" className="brand-mark">
+          <span className="brand-mark-title">Don Manuel</span>
+          <span className="brand-mark-subtitle">{brand.tagline}</span>
         </a>
 
         <nav className="hidden items-center gap-6 lg:flex">
@@ -33,7 +33,7 @@ export function StickyHeader() {
         </nav>
 
         <div className="hidden lg:block">
-          <Button asChild variant="hero">
+          <Button asChild variant="hero" className="header-cta commercial-button">
             <a href={buildWhatsAppLink()} target="_blank" rel="noreferrer">
               <MessageCircle />
               Pedir por WhatsApp
@@ -65,7 +65,7 @@ export function StickyHeader() {
                 {item.label}
               </a>
             ))}
-            <Button asChild variant="hero" className="mt-2 w-full">
+            <Button asChild variant="hero" className="commercial-button mt-2 w-full">
               <a href={buildWhatsAppLink()} target="_blank" rel="noreferrer">
                 <MessageCircle />
                 Pedir por WhatsApp
