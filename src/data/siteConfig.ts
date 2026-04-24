@@ -6,6 +6,7 @@ export const siteConfig = {
   // Cuando tengas el logo real, súbelo a:
   // public/logo/logo-don-manuel.png
   // y cambia este valor a "/logo/logo-don-manuel.png"
+  // Si queda vacío, la web debe mostrar el texto “Don Manuel”.
   logoPath: "",
 
   heroTitle: "Pan recién hecho, dulces de casa y charcutería para compartir",
@@ -18,10 +19,9 @@ export const siteConfig = {
 
   instagram: "https://www.instagram.com/panaderia_donmanuel.c.a",
 
-  // Pendiente hasta tener los datos reales
-  location: "Dirección próximamente",
+  location: "Urbanización Terepaima, en la avenida, Cabudare, Lara, Venezuela",
   hours: "Horario próximamente",
-  mapsUrl: "",
+  mapsUrl: "https://www.google.com/maps?q=10.022582,-69.272360",
 
   // URL tentativa. Cuando Vercel genere la URL real, reemplazar este valor.
   siteUrl: "https://don-manuel-s-delights.vercel.app",
@@ -37,6 +37,7 @@ export const siteConfig = {
     ogTitle: "Don Manuel | Panadería, pastelería, charcutería y combos",
     ogDescription:
       "Pan recién hecho, dulces de casa, café, charcutería y combos especiales para pedir directo por WhatsApp.",
+    ogImage: "/images/og-don-manuel.jpg",
   },
 };
 
@@ -56,5 +57,6 @@ export const brand = {
 export function absoluteUrl(path: string) {
   if (!path) return siteConfig.siteUrl;
   if (/^https?:\/\//i.test(path)) return path;
+
   return `${siteConfig.siteUrl}${path.startsWith("/") ? path : `/${path}`}`;
 }
