@@ -1,14 +1,19 @@
-import { brand } from "@/data/offers";
+import { siteConfig } from "@/data/siteConfig";
 
-export const defaultWhatsAppMessage =
-  "Hola, Panadería y Pastelería Don Manuel C.A. Quiero hacer un pedido o consultar las ofertas disponibles.";
+export function buildWhatsAppLink(message?: string) {
+  const text = encodeURIComponent(message || siteConfig.defaultWhatsAppMessage);
 
-export function buildWhatsAppLink(message = defaultWhatsAppMessage) {
-  return `https://wa.me/${brand.whatsappNumber}?text=${encodeURIComponent(message)}`;
+  return `https://wa.me/${siteConfig.whatsappNumber}?text=${text}`;
 }
 
-export function buildOfferWhatsAppLink(offerName: string) {
+export function buildComboWhatsAppLink(comboName: string) {
+  const message = `Hola, Panadería Don Manuel. Quiero consultar el ${comboName}. ¿Está disponible hoy?`;
+
+  return buildWhatsAppLink(message);
+}
+
+export function buildLocationWhatsAppLink() {
   return buildWhatsAppLink(
-    `Hola, Panadería Don Manuel. Quiero consultar el ${offerName}. ¿Está disponible hoy?`,
+    "Hola, Panadería Don Manuel. Quiero consultar la dirección para visitarlos."
   );
 }
