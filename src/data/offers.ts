@@ -40,6 +40,7 @@ export type OfferItem = {
   price: string;
   image: string;
   alt: string;
+  featured?: boolean;
 };
 
 export const rotatingWords = [
@@ -154,6 +155,7 @@ export const offers: OfferItem[] = [
     price: "Consultar precio",
     image: charcuterieImage,
     alt: "Combo charcutero con queso, jamón, embutidos y pan",
+    featured: true,
   },
   {
     name: "Combo Merienda Dulce",
