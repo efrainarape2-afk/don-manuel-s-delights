@@ -29,25 +29,36 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       {
-        title: "Panadería y Pastelería Don Manuel C.A. | Pan, dulces, charcutería y combos",
+        title: "Don Manuel | Panadería, pastelería y combos en WhatsApp",
       },
       {
         name: "description",
         content:
-          "Panadería y Pastelería Don Manuel C.A. ofrece pan recién hecho, pastelería, charcutería, embutidos, café y combos especiales. Haz tu pedido por WhatsApp.",
+          "Panadería y Pastelería Don Manuel C.A.: pan recién hecho, dulces, café, charcutería y combos del día. Haz tu pedido por WhatsApp fácil y rápido.",
       },
       {
         property: "og:title",
-        content: "Panadería y Pastelería Don Manuel C.A. | Pan, dulces, charcutería y combos",
+        content: "Don Manuel | Panadería, pastelería y combos del día",
       },
       {
         property: "og:description",
         content:
-          "Pan recién hecho, dulces de casa, café, charcutería y combos especiales para tu mesa venezolana.",
+          "Pan recién hecho, dulces de casa, café, charcutería y combos especiales para pedir directo por WhatsApp.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:locale", content: "es_VE" },
+      { property: "og:image", content: gallery[0].image },
+      { property: "og:image:alt", content: gallery[0].alt },
+      { name: "twitter:title", content: "Don Manuel | Panadería, pastelería y combos del día" },
+      {
+        name: "twitter:description",
+        content:
+          "Pan recién hecho, dulces, café, charcutería y combos especiales para pedir por WhatsApp.",
+      },
+      { name: "twitter:image", content: gallery[0].image },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: "https://id-preview--1f2ce72d-3d0c-4ee1-899e-659164f53ce9.lovable.app/" }],
     scripts: [
       {
         type: "application/ld+json",
@@ -102,13 +113,13 @@ function Index() {
     <div className="min-h-screen bg-background text-foreground">
       <StickyHeader />
 
-      <main>
-        <section id="inicio" className="hero-section">
+      <main id="contenido-principal">
+        <section id="inicio" className="hero-section" aria-labelledby="hero-title">
           <div className="dm-container grid items-center gap-12 pb-16 pt-28 lg:grid-cols-[0.96fr_1.04fr] lg:pb-28 lg:pt-36">
             <Reveal className="hero-copy space-y-8">
               <div className="space-y-5">
                 <p className="section-eyebrow">Panadería · Pastelería · Charcutería</p>
-                <h1 className="hero-title text-balance">
+                <h1 id="hero-title" className="hero-title text-balance">
                   <span>Pan recién hecho</span>
                   <span className="text-primary"> dulces memorables </span>
                   <span>y una vitrina pensada para antojar</span>
@@ -193,10 +204,11 @@ function Index() {
           </div>
         </section>
 
-        <section id="favoritos" className="section-space">
+        <section id="favoritos" className="section-space" aria-labelledby="favoritos-title">
           <div className="dm-container">
             <Reveal>
               <SectionHeading
+                titleId="favoritos-title"
                 eyebrow="Preferidos del día"
                 title="Los favoritos de Don Manuel"
                 description="Una selección pensada para antojos diarios, desayunos prácticos y compras que resuelven la mesa con sabor.
@@ -213,10 +225,11 @@ function Index() {
           </div>
         </section>
 
-        <section id="combos" className="section-space section-band">
+        <section id="combos" className="section-space section-band" aria-labelledby="combos-title">
           <div className="dm-container">
             <Reveal>
               <SectionHeading
+                titleId="combos-title"
                 eyebrow="Pedidos rápidos"
                 title="Combos y ofertas del día"
                 description="Una vitrina pensada para vender: combos visibles, filtros rápidos y llamadas a la acción directas para cerrar pedidos por WhatsApp."
@@ -289,10 +302,11 @@ function Index() {
           </div>
         </section>
 
-        <section id="menu" className="section-space">
+        <section id="menu" className="section-space" aria-labelledby="menu-title">
           <div className="dm-container">
             <Reveal>
               <SectionHeading
+                titleId="menu-title"
                 eyebrow="Selección visible"
                 title="Menú rápido"
                 description="Todo lo esencial de Don Manuel presentado como una carta visual cálida, fácil de recorrer y lista para consultar por WhatsApp."
@@ -308,11 +322,12 @@ function Index() {
           </div>
         </section>
 
-        <section className="section-space section-band-soft">
+        <section className="section-space section-band-soft" aria-labelledby="marca-title">
           <div className="dm-container grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
             <Reveal>
               <div className="space-y-5">
                 <SectionHeading
+                  titleId="marca-title"
                   eyebrow="Experiencia de marca"
                   title="Hecho para acompañar tu mesa todos los días"
                   description="En Panadería y Pastelería Don Manuel C.A. trabajamos cada día para ofrecer productos frescos, sabrosos y pensados para la mesa venezolana. Desde el pan de todos los días hasta dulces, café, charcutería y combos especiales, queremos ser ese lugar práctico y confiable al que siempre puedes volver."
@@ -333,10 +348,11 @@ function Index() {
           </div>
         </section>
 
-        <section id="whatsapp" className="section-space">
+        <section id="whatsapp" className="section-space" aria-labelledby="whatsapp-title">
           <div className="dm-container">
             <Reveal>
               <SectionHeading
+                titleId="whatsapp-title"
                 eyebrow="Pedido directo"
                 title="Pide fácil por WhatsApp"
                 description="Sin formularios ni vueltas: revisa, pregunta y confirma tu pedido directo con el equipo de Don Manuel."
@@ -356,10 +372,11 @@ function Index() {
           </div>
         </section>
 
-        <section className="section-space section-band">
+        <section className="section-space section-band" aria-labelledby="galeria-title">
           <div className="dm-container">
             <Reveal>
               <SectionHeading
+                titleId="galeria-title"
                 eyebrow="Galería fresca"
                 title="Mira lo nuevo del día"
                 description="Imágenes listas para reemplazar por fotos reales del negocio, manteniendo una presentación premium desde el primer momento."
@@ -392,13 +409,13 @@ function Index() {
           </div>
         </section>
 
-        <section id="ubicacion" className="section-space">
+        <section id="ubicacion" className="section-space" aria-labelledby="ubicacion-title">
           <div className="dm-container">
             <Reveal>
               <div className="location-panel">
                 <div className="space-y-4">
                   <p className="section-eyebrow">Visítanos</p>
-                  <h2 className="font-display text-4xl md:text-5xl">Visítanos</h2>
+                  <h2 id="ubicacion-title" className="font-display text-[2rem] leading-tight md:text-5xl">Visítanos</h2>
                   <p className="text-lg leading-8 text-muted-foreground">
                     Acércate a Don Manuel para resolver desayunos, meriendas, reuniones o compras del día con el sabor de siempre.
                   </p>
@@ -448,7 +465,7 @@ function Index() {
         </section>
       </main>
 
-      <footer className="footer-shell">
+      <footer className="footer-shell" aria-label="Pie de página">
         <div className="dm-container grid gap-8 py-10 md:grid-cols-[1.2fr_0.8fr_0.8fr]">
           <div className="space-y-4">
             <div>

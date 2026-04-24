@@ -144,7 +144,7 @@
   }
 
   .section-space {
-    @apply py-20 md:py-28;
+    @apply py-16 md:py-24 lg:py-28;
   }
 
   .section-band {
@@ -190,12 +190,12 @@
   }
 
   .hero-title {
-    @apply max-w-4xl font-display text-[3.5rem] leading-[0.95] md:text-[4.6rem] lg:text-[5.5rem];
+    @apply max-w-4xl font-display text-[2.9rem] leading-[0.94] sm:text-[3.35rem] md:text-[4.6rem] lg:text-[5.5rem];
     text-wrap: balance;
   }
 
   .hero-lead {
-    @apply text-lg leading-8 text-muted-foreground md:text-xl;
+    @apply text-base leading-7 text-muted-foreground sm:text-lg md:text-xl;
   }
 
   .hero-proof-row {
@@ -239,6 +239,10 @@
 
   .hero-image-badge {
     @apply absolute bottom-6 left-6 max-w-sm rounded-2xl border border-border/60 bg-card/92 p-5 shadow-soft backdrop-blur-md;
+  }
+
+  .hero-image-badge p {
+    text-wrap: pretty;
   }
 
   .ticker-wrap {
@@ -497,6 +501,48 @@
     @apply rounded-[1.6rem];
   }
 
+  .product-card p,
+  .offer-card p,
+  .menu-panel p,
+  .step-card p,
+  .location-panel p,
+  .gallery-card p,
+  .value-card p,
+  .info-card p,
+  .footer-link,
+  .nav-link {
+    overflow-wrap: anywhere;
+  }
+
+  .section-eyebrow,
+  .brand-mark-subtitle,
+  .footer-title,
+  .info-label,
+  .featured-stat-label {
+    color: color-mix(in oklab, var(--color-muted-foreground) 78%, var(--color-foreground) 22%);
+  }
+
+  .hero-proof,
+  .hero-day-chip,
+  .offers-toolbar,
+  .featured-offer-copy,
+  .location-panel,
+  .step-card,
+  .value-card,
+  .menu-panel,
+  .product-card,
+  .offer-card,
+  .gallery-card,
+  .info-card {
+    border-color: color-mix(in oklab, var(--color-border) 84%, var(--color-accent) 16%);
+  }
+
+  .ticker-item,
+  .hero-proof-value,
+  .brand-mark-title {
+    text-wrap: balance;
+  }
+
   .filter-chip {
     @apply inline-flex min-h-11 items-center rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-foreground transition-all duration-300 hover:-translate-y-0.5 hover:bg-surface;
     box-shadow: 0 8px 18px -18px color-mix(in oklab, var(--color-accent) 70%, transparent);
@@ -510,7 +556,7 @@
   .reveal-section {
     opacity: 0;
     transform: translateY(24px);
-    transition: opacity 700ms ease, transform 700ms ease;
+    transition: opacity 520ms ease, transform 520ms ease;
   }
 
   .reveal-section.is-visible {
@@ -550,12 +596,99 @@
 }
 
 @media (max-width: 767px) {
+  .site-header {
+    background: color-mix(in oklab, var(--color-background) 90%, white 10%);
+    @apply border-border/60 backdrop-blur-xl;
+  }
+
+  .brand-mark-title {
+    font-size: 1.45rem;
+  }
+
+  .brand-mark-subtitle {
+    font-size: 0.64rem;
+    letter-spacing: 0.18em;
+  }
+
+  .section-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+  }
+
+  .hero-proof-row {
+    @apply grid-cols-1;
+  }
+
+  .hero-image-shell {
+    border-radius: 1.4rem;
+    padding: 0.7rem;
+    transform: none;
+  }
+
+  .hero-image {
+    aspect-ratio: 4 / 4.8;
+    border-radius: 1.1rem;
+  }
+
+  .hero-image-badge {
+    left: 0.9rem;
+    right: 0.9rem;
+    bottom: 0.9rem;
+    max-width: none;
+    padding: 1rem;
+  }
+
+  .hero-image-badge .font-display {
+    font-size: 1.35rem;
+    line-height: 1.05;
+  }
+
+  .ticker-item {
+    font-size: 1.3rem;
+  }
+
+  .offers-toolbar {
+    border-radius: 1.35rem;
+    padding: 1rem;
+  }
+
+  .featured-offer-copy,
+  .location-panel,
+  .product-card,
+  .offer-card,
+  .menu-panel,
+  .step-card,
+  .value-card,
+  .gallery-card {
+    border-radius: 1.2rem;
+  }
+
   .offer-card {
     @apply w-full;
   }
 
   .offer-card .inline-flex:has(svg) {
     @apply w-full;
+  }
+}
+
+@media (hover: none) {
+  .product-card:hover,
+  .offer-card:hover,
+  .menu-panel:hover,
+  .step-card:hover,
+  .gallery-card:hover,
+  .value-card:hover,
+  .info-card:hover,
+  .hero-image-shell:hover {
+    transform: none;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .image-zoom:hover img,
+  .commercial-button:hover {
+    transform: none;
+    box-shadow: inherit;
   }
 }
 
