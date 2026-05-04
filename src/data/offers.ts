@@ -294,8 +294,7 @@ export const navItems = [
   { label: "Inicio", href: "#inicio" },
   { label: "Favoritos", href: "#favoritos" },
   { label: "Combos", href: "#combos" },
-  { label: "Charcutería", href: "#menu" },
   { label: "Menú", href: "#menu" },
+  { label: "Galería", href: "#galeria" },
   { label: "Ubicación", href: "#ubicacion" },
-  { label: "WhatsApp", href: "#whatsapp" },
 ];

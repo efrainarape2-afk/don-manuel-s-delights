@@ -23,8 +23,8 @@ export const siteConfig = {
   hours: "Horario próximamente",
   mapsUrl: "https://www.google.com/maps?q=10.022582,-69.272360",
 
-  // URL tentativa. Cuando Vercel genere la URL real, reemplazar este valor.
-  siteUrl: "https://don-manuel-s-delights.vercel.app",
+  // Reemplazar con tu dominio real cuando esté configurado en Cloudflare Pages.
+  siteUrl: "https://donmanuel.pages.dev",
 
   defaultWhatsAppMessage:
     "Hola, Panadería y Pastelería Don Manuel C.A. Quiero hacer un pedido o consultar las ofertas disponibles.",
