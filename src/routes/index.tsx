@@ -58,7 +58,7 @@ export const Route = createFileRoute("/")({
       { name: "twitter:image", content: gallery[0].image },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "https://id-preview--1f2ce72d-3d0c-4ee1-899e-659164f53ce9.lovable.app/" }],
+    links: [{ rel: "canonical", href: "https://donmanuel.pages.dev/" }],
     scripts: [
       {
         type: "application/ld+json",
@@ -372,7 +372,7 @@ function Index() {
           </div>
         </section>
 
-        <section className="section-space section-band" aria-labelledby="galeria-title">
+        <section id="galeria" className="section-space section-band" aria-labelledby="galeria-title">
           <div className="dm-container">
             <Reveal>
               <SectionHeading
