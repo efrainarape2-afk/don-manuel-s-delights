@@ -1,14 +1,17 @@
-import { cloudflare } from "@cloudflare/vite-plugin";
+import { TanStackRouterVite } from "@tanstack/router-plugin/vite";
+import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
-import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
   plugins: [
-    tanstackStart(),
-    cloudflare({ persistState: false }),
+    TanStackRouterVite({ autoCodeSplitting: true }),
+    react(),
     tailwindcss(),
     tsconfigPaths(),
   ],
+  build: {
+    outDir: "dist",
+  },
 });
