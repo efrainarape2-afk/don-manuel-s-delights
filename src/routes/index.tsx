@@ -26,56 +26,6 @@ import {
 import { buildWhatsAppLink } from "@/lib/whatsapp";
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      {
-        title: "Don Manuel | Panadería, pastelería y combos en WhatsApp",
-      },
-      {
-        name: "description",
-        content:
-          "Panadería y Pastelería Don Manuel C.A.: pan recién hecho, dulces, café, charcutería y combos del día. Haz tu pedido por WhatsApp fácil y rápido.",
-      },
-      {
-        property: "og:title",
-        content: "Don Manuel | Panadería, pastelería y combos del día",
-      },
-      {
-        property: "og:description",
-        content:
-          "Pan recién hecho, dulces de casa, café, charcutería y combos especiales para pedir directo por WhatsApp.",
-      },
-      { property: "og:type", content: "website" },
-      { property: "og:locale", content: "es_VE" },
-      { property: "og:image", content: gallery[0].image },
-      { property: "og:image:alt", content: gallery[0].alt },
-      { name: "twitter:title", content: "Don Manuel | Panadería, pastelería y combos del día" },
-      {
-        name: "twitter:description",
-        content:
-          "Pan recién hecho, dulces, café, charcutería y combos especiales para pedir por WhatsApp.",
-      },
-      { name: "twitter:image", content: gallery[0].image },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-    links: [{ rel: "canonical", href: "https://donmanuel.pages.dev/" }],
-    scripts: [
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Bakery",
-          name: brand.name,
-          telephone: brand.whatsappDisplay,
-          sameAs: [brand.instagram],
-          servesCuisine: "Panadería y pastelería venezolana",
-          description:
-            "Panadería, pastelería, charcutería, embutidos, café y combos especiales disponibles por WhatsApp.",
-          areaServed: "Venezuela",
-        }),
-      },
-    ],
-  }),
   component: Index,
 });
 
