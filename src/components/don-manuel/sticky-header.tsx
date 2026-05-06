@@ -20,8 +20,11 @@ export function StickyHeader() {
     <header className={scrolled ? "site-header is-scrolled" : "site-header"}>
       <div className="dm-container flex min-h-20 items-center justify-between gap-4">
         <a href="#inicio" className="brand-mark">
-          <span className="brand-mark-title">Don Manuel</span>
-          <span className="brand-mark-subtitle">{brand.tagline}</span>
+          <img
+            src="/Logo.png"
+            alt="Don Manuel – Panadería, Pastelería y Charcutería"
+            className="h-14 w-auto object-contain"
+          />
         </a>
 
         <nav className="hidden items-center gap-6 lg:flex">
