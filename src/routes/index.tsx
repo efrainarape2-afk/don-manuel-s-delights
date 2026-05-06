@@ -419,8 +419,11 @@ function Index() {
         <div className="dm-container grid gap-8 py-10 md:grid-cols-[1.2fr_0.8fr_0.8fr]">
           <div className="space-y-4">
             <div>
-              <p className="font-display text-3xl">Don Manuel</p>
-              <p className="text-sm text-muted-foreground">{brand.tagline}</p>
+              <img
+                src="/Logo.png"
+                alt="Don Manuel – Panadería, Pastelería y Charcutería"
+                className="h-24 w-auto object-contain"
+              />
             </div>
             <p className="max-w-md text-sm leading-7 text-muted-foreground">
               Panadería y Pastelería Don Manuel C.A. acompaña la mesa venezolana con pan fresco,
